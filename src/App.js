@@ -6,6 +6,7 @@ import hazel from './images/hazel.jpg';
 import tubby from './images/tubby.jpg';
 import DogList from "./DogList";
 import Dog from './Dog';
+import Navbar from './Navbar';
 
 class App extends Component {
   static defaultProps = {
@@ -46,7 +47,7 @@ class App extends Component {
   render() {
     const getDog = (routeProps) => {
       let dogName = routeProps.match.params.dogName;
-      {/* abowe - that's where we define PATH variable right now ("/dogs/:DOGNAME") */}
+      {/* above - that's where we find PATH variable ("/dogs/:DOGNAME") */}
       let currentDog = this.props.dogs.find(
         dog => dog.name.toLowerCase() === dogName.toLowerCase()
       );
@@ -54,10 +55,12 @@ class App extends Component {
     }
     return (
       <div>
+        <Navbar dogs={this.props.dogs} />
         <Switch>
           <Route exact path='/dogs' render={(routeProps) => <DogList {...routeProps} dogs={this.props.dogs} /> } />
           <Route exact path='/dogs/:dogName' render={getDog} />
-          {/* the way above WE connect getDog() to ROUTE component.
+          {/* Instead of passing in ALL of <Dog>s - we are gonna pass a F-n getDog().
+          the way above WE connect getDog() to ROUTE component.
           Route will automatically PASS the routeProps into getDog() method */}
         </Switch>
       </div>
