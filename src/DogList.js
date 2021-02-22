@@ -7,7 +7,6 @@ class DogList extends Component {
       <div className="DogList">
         <h1 className='display-1 text-center' >Dog List!</h1>
           {/* Loop over all dogs and for each dog make some sort of contact */}
-        <div className='container'>
           <div className='row'>
             {
               this.props.dogs.map((dog) => (
@@ -18,7 +17,6 @@ class DogList extends Component {
               ))
             }
           </div>
-        </div>
       </div>
     )
   }
