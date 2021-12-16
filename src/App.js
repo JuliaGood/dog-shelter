@@ -7,7 +7,7 @@ import DogCard from './DogCard';
 
 class App extends Component {
   static defaultProps = {
-    numDogs: 9
+    numDogs: 5
   }
 
   constructor(props) {
@@ -32,12 +32,12 @@ class App extends Component {
             'Authorization': 'd8b24e68-2e88-46f9-b418-e92f25f5e4cd'
           }
         });
-        console.log('response: ', response);
+        //console.log('response: ', response);
 
         const dogInfo = response.data[0];
         console.log(`dogInfo`, dogInfo);
 
-        if (dogInfo.breeds.length !== 0) {
+        if (dogInfo.breeds.length > 0) {
           const newDog = {
             src: dogInfo.url,
             id: dogInfo.id,
@@ -46,11 +46,16 @@ class App extends Component {
             height: dogInfo.breeds[0].height.metric,
             temper: dogInfo.breeds[0].temperament
           }
+
           console.log(`newDog`, newDog);
-          randDogs.push(newDog);
+
+          const foundDog = randDogs.find((dog) => dog.breedName === newDog.breedName);
+          if (!foundDog) {
+            randDogs.push(newDog);
+          }
 
           this.setState({ dogs: randDogs }, () => {
-            return window.localStorage.setItem('dogs', JSON.stringify(this.state.dogs))
+            localStorage.setItem('dogs', JSON.stringify(this.state.dogs));
           });
 
         } else {

@@ -7,7 +7,7 @@ class Navbar extends Component {
   }
   render() {
     return (
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className="nb navbar navbar-expand-lg navbar-dark bg-dark">
         <Link className="navbar-brand" to="/dogs" >Dog App</Link>
         <button
           className="navbar-toggler"

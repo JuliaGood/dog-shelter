@@ -15,9 +15,11 @@ class DogList extends Component {
           {this.props.dogs.map((dog, index) => (
             <div className="Dog col-md-6 col-lg-4 text-center" key={index} >
               <div className="dog-container">
-                <div className="dog-box-img"
-                  style={{ backgroundImage: `url(${dog.src})` }}
-                ></div>
+                <Link to={`/dogs/${dog.id}`}>
+                  <div className="dog-box-img"
+                    style={{ backgroundImage: `url(${dog.src})` }}
+                  ></div>
+                </Link>
                 <h3 className="mt-3" >
                   <Link
                     className="underline"

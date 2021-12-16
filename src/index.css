@@ -17,3 +17,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.nb {
+  padding-left: 50px;
+  padding-right: 50px;
+}

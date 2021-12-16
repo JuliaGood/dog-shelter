@@ -5,14 +5,8 @@
 }
 
 .dog-card img { 
-  filter: grayscale();
-  transition: 0.4s filter ease;
   max-height: 350px;
   max-height: 330px;
   object-fit: cover;
   object-position: top;
-}
-
-.dog-card:hover img {
-  filter: none;
 }
