@@ -7,7 +7,7 @@ import DogCard from './DogCard';
 
 class App extends Component {
   static defaultProps = {
-    numDogs: 5
+    numDogs: 9
   }
 
   constructor(props) {
@@ -25,8 +25,8 @@ class App extends Component {
 
   async getDogs() {
     try {
-      const randDogs = [];
-      while (randDogs.length < this.props.numDogs) {
+      const randDogs = new Map();
+      while (randDogs.size < this.props.numDogs) {
         const response = await axios.get('https://api.thedogapi.com/v1/images/search', {
           headers: {
             'Authorization': 'd8b24e68-2e88-46f9-b418-e92f25f5e4cd'
@@ -49,12 +49,13 @@ class App extends Component {
 
           console.log(`newDog`, newDog);
 
-          const foundDog = randDogs.find((dog) => dog.breedName === newDog.breedName);
-          if (!foundDog) {
-            randDogs.push(newDog);
+          if (!randDogs.has(newDog.breedName)) {
+            randDogs.set(newDog.breedName, newDog);
+          } else {
+            console.log(`duplicate found`);
           }
 
-          this.setState({ dogs: randDogs }, () => {
+          this.setState({ dogs: Array.from(randDogs.values()) }, () => {
             localStorage.setItem('dogs', JSON.stringify(this.state.dogs));
           });
 
