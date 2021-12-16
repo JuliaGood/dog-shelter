@@ -6,16 +6,6 @@ body {
   font-family: "Source Sans Pro";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(
-    100deg,
-    rgba(250, 214, 195, 0.8) 30%,
-    rgb(176, 234, 232) 120%
-  );
-  background: linear-gradient( 
-    100deg,
-    rgb(120, 255, 214) 30%,
-    rgb(168, 255, 120) 120% 
-  );
   background: linear-gradient( 
     100deg,
     rgb(136 255 240) 30%,

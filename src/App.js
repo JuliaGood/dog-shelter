@@ -7,13 +7,13 @@ import DogCard from './DogCard';
 
 class App extends Component {
   static defaultProps = {
-    numDogs: 3
+    numDogs: 9
   }
 
   constructor(props) {
     super(props);
     this.state = {
-      dogs: []
+      dogs: JSON.parse(window.localStorage.getItem('dogs') || "[]")
     }
   }
 
@@ -49,7 +49,9 @@ class App extends Component {
           console.log(`newDog`, newDog);
           randDogs.push(newDog);
 
-          this.setState({ dogs: randDogs });
+          this.setState({ dogs: randDogs }, () => {
+            return window.localStorage.setItem('dogs', JSON.stringify(this.state.dogs))
+          });
 
         } else {
           console.log('dogInfo.breeds.length === 0');
