@@ -10,7 +10,7 @@ class DogList extends Component {
   render() {
     return (
       <div className="DogList mb-5">
-        <h2 className="display-4 text-center my-5" >Dog List!</h2>
+        <h2 className="display-4 text-center my-5" >Doggo List!</h2>
         <div className="row">
           {this.props.dogs.map((dog, index) => (
             <div className="Dog col-md-6 col-lg-4 text-center" key={index} >

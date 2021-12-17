@@ -91,6 +91,7 @@ class App extends Component {
             <Redirect to="/dogs" />
           </Switch>
         </div>
+        <div className="new-dogs" onClick={() => this.getDogs()}>new doggies</div>
       </div>
     );
   }

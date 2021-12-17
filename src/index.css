@@ -21,3 +21,20 @@ code {
   padding-left: 50px;
   padding-right: 50px;
 }
+
+.new-dogs {
+  border-radius: 15px;
+  display: block;
+  position: fixed;
+  bottom: 0;
+  margin: 20px;
+  cursor: pointer;
+  right: 0;
+  height: 50px;
+  color: white;
+  width: 150px;
+  text-transform: uppercase;
+  line-height: 50px;
+  text-align: center;
+  background: #343a40;
+}
