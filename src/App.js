@@ -23,7 +23,7 @@ class App extends Component {
     }
   }
 
-  async getDogs() {
+  getDogs = async () => {
     try {
       const randDogs = new Map();
       while (randDogs.size < this.props.numDogs) {
@@ -70,8 +70,6 @@ class App extends Component {
 
 
   render() {
-    console.log(`this.state.dogs`, this.state.dogs);
-
     const getDogCard = (routeProps) => {
       const dogId = routeProps.match.params.dogId;
       {/* how to find the PATH, the variable "/dogs/:DOGID" in the url */ }
@@ -84,14 +82,11 @@ class App extends Component {
     return (
       <div>
         <Navbar dogs={this.state.dogs} />
-        <div className="container">
-          <Switch>
-            <Route exact path="/dogs" render={(routeProps) => <DogList {...routeProps} dogs={this.state.dogs} />} />
-            <Route exact path="/dogs/:dogId" render={getDogCard} />
-            <Redirect to="/dogs" />
-          </Switch>
-        </div>
-        <div className="new-dogs" onClick={() => this.getDogs()}>new doggies</div>
+        <Switch>
+          <Route exact path="/dogs" render={(routeProps) => <DogList {...routeProps} dogs={this.state.dogs} getDogs={this.getDogs} />} />
+          <Route exact path="/dogs/:dogId" render={getDogCard} />
+          <Redirect to="/dogs" />
+        </Switch>
       </div>
     );
   }
