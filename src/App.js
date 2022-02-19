@@ -85,7 +85,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/dogs" render={(routeProps) => <DogList {...routeProps} dogs={this.state.dogs} getDogs={this.getDogs} />} />
           <Route exact path="/dogs/:dogId" render={getDogCard} />
-          <Redirect to="/dogs" />
+          {/* <Redirect to="/dogs" /> */}
         </Switch>
       </div>
     );
