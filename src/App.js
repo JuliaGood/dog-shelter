@@ -27,12 +27,12 @@ class App extends Component {
     try {
       const randDogs = new Map();
       while (randDogs.size < this.props.numDogs) {
-        const response = await axios.get('https://api.thedogapi.com/v1/images/search', {
+        const response = await axios.get('https://api.thedogapi.com/v1/images/search?has_breeds=1&api_key=d8b24e68-2e88-46f9-b418-e92f25f5e4cd', {
           headers: {
             'Authorization': 'd8b24e68-2e88-46f9-b418-e92f25f5e4cd'
           }
         });
-        //console.log('response: ', response);
+        console.log('response: ', response);
 
         const dogInfo = response.data[0];
         console.log(`dogInfo`, dogInfo);
